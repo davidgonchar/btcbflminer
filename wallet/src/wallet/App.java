@@ -3,22 +3,19 @@ package wallet;
 import org.bitcoinj.core.*;
 import org.bitcoinj.core.listeners.TransactionConfidenceEventListener;
 import org.bitcoinj.kits.WalletAppKit;
-import org.bitcoinj.net.discovery.DnsDiscovery;
 import org.bitcoinj.params.MainNetParams;
-import org.bitcoinj.store.BlockStoreException;
-import org.bitcoinj.store.SPVBlockStore;
-import org.bitcoinj.wallet.UnreadableWalletException;
 import org.bitcoinj.wallet.Wallet;
 import org.bitcoinj.wallet.listeners.WalletCoinsReceivedEventListener;
 import org.bitcoinj.wallet.listeners.WalletCoinsSentEventListener;
 
 import java.io.*;
-import java.util.List;
+import java.math.BigInteger;
+import java.util.Scanner;
 
 public class App {
     private static final String fn = "app-blockchain";
 
-    public static void main( String[] args ) throws BlockStoreException, InterruptedException, UnreadableWalletException, FileNotFoundException {
+    public static void main(String[] args) throws Exception {
 
         NetworkParameters netParams = MainNetParams.get();
 
@@ -30,39 +27,36 @@ public class App {
         Wallet wallet = appKit.wallet();
 
         if (wallet.getImportedKeys().size() == 0) {
-            ECKey key = new ECKey();
+            String privKey;
+            System.out.println("Enter private key (silent): ");
+            if (System.console() == null) {
+                Scanner in = new Scanner(System.in);
+                privKey = in.nextLine();
+            } else {
+                privKey = new String(System.console().readPassword());
+            }
+
+            ECKey key = getEcKey(netParams, privKey);
             wallet.importKey(key);
         }
 
         for (ECKey key : wallet.getImportedKeys()) {
             Address addr = key.toAddress(netParams);
-            DumpedPrivateKey pKey = key.getPrivateKeyEncoded(netParams);
             wallet.addWatchedAddress(addr);
-
             System.out.println("Public address: " + addr.toString());
-            System.out.println("Private key: " + pKey.toString());
+
+//            DumpedPrivateKey pKey = key.getPrivateKeyEncoded(netParams);
+//            System.out.println("Private key: " + pKey.toString());
         }
 
-        SPVBlockStore blockStore = new SPVBlockStore(netParams, new File(fn));
-
-//        BlockStore blockStore = new MemoryBlockStore(netParams);
-        BlockChain chain = new BlockChain(netParams, wallet, blockStore);
-
-        PeerGroup peerGroup = new PeerGroup(netParams, chain);
-        peerGroup.addPeerDiscovery(new DnsDiscovery(netParams));
-        peerGroup.addWallet(wallet);
-        peerGroup.start();
-        peerGroup.downloadBlockChain();
-
-        wallet.addCoinsReceivedEventListener(
-                new WalletCoinsReceivedEventListener() {
-                    @Override
-                    public void onCoinsReceived(Wallet wallet, Transaction tx, Coin prevBalance, Coin newBalance) {
-                        System.out.println("coins received");
-                        System.out.println("Previous balance: " + prevBalance.toFriendlyString());
-                        System.out.println("New balance: " + newBalance.toFriendlyString());
-                    }
+        wallet.addCoinsReceivedEventListener(new WalletCoinsReceivedEventListener() {
+                @Override
+                public void onCoinsReceived(Wallet wallet, Transaction tx, Coin prevBalance, Coin newBalance) {
+                    System.out.println("coins received");
+                    System.out.println("Previous balance: " + prevBalance.toFriendlyString());
+                    System.out.println("New balance: " + newBalance.toFriendlyString());
                 }
+            }
         );
 
         wallet.addCoinsSentEventListener(new WalletCoinsSentEventListener() {
@@ -73,21 +67,43 @@ public class App {
                 System.out.println("New balance: " + newBalance.toFriendlyString());
             }
         });
+
         wallet.addTransactionConfidenceEventListener(new TransactionConfidenceEventListener() {
             @Override
-            public void onTransactionConfidenceChanged(Wallet wallet, Transaction tx) {
+            public void onTransactionConfidenceChanged(Wallet txWallet, Transaction tx) {
+                for (TransactionOutput txo : tx.getOutputs()) {
+                    Address oAdr = txo.getScriptPubKey().getToAddress(netParams);
+                    for (Address wa : txWallet.getWatchedAddresses()) {
+                        if (wa.equals(oAdr)) {
+                            System.out.println("-----> watching address: " + wa.toString());
+                        }
+                    }
+                }
                 System.out.println("-----> confidence changed: " + tx.getHashAsString());
-                TransactionConfidence confidence = tx.getConfidence();
-                System.out.println("new block depth: " + confidence.getDepthInBlocks());
+                System.out.println("-----> new block depth: " + tx.getConfidence().getDepthInBlocks());
+                Coin inCoins = tx.getValueSentToMe(txWallet);
+                System.out.println("-----> received: " + inCoins.toFriendlyString());
+                Coin outCoins = tx.getValueSentFromMe(txWallet);
+                System.out.println("-----> sent: " + outCoins.toFriendlyString());
+                System.out.println();
             }
         });
 
         while(true){
-            List<Address> addresses = wallet.getWatchedAddresses();
-            for (Address a : addresses) {
-                System.out.println("Watching address: " + a.toString());
-            }
+            System.out.println("Current balance: " + wallet.getBalance().toFriendlyString());
             Thread.sleep(300000);
         }
+    }
+
+    public static ECKey getEcKey(NetworkParameters netParams, String sPrivKey) throws Exception {
+        ECKey key;
+        if (sPrivKey.length() == 51 || sPrivKey.length() == 52) {
+            DumpedPrivateKey dumpedPrivateKey = DumpedPrivateKey.fromBase58(netParams, sPrivKey);
+            key = dumpedPrivateKey.getKey();
+        } else {
+            BigInteger privKey = Base58.decodeToBigInteger(sPrivKey);
+            key = ECKey.fromPrivate(privKey);
+        }
+        return key;
     }
 }
