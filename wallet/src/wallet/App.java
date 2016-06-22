@@ -1,5 +1,6 @@
 package wallet;
 
+import http.BtcServletRest;
 import org.bitcoinj.core.*;
 import org.bitcoinj.core.listeners.TransactionConfidenceEventListener;
 import org.bitcoinj.kits.WalletAppKit;
@@ -91,7 +92,7 @@ public class App {
 
         while(true){
             System.out.println("Current balance: " + wallet.getBalance().toFriendlyString());
-            Thread.sleep(300000);
+            BtcServletRest.run(appKit);
         }
     }
 
