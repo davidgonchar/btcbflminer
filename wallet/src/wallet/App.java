@@ -133,7 +133,7 @@ public class App {
             if (System.console() == null) {
                 Scanner in = new Scanner(System.in);
                 cmd = in.nextLine();
-                in.close();
+//                in.close();
             } else {
                 cmd = System.console().readLine();
             }
@@ -177,7 +177,7 @@ public class App {
             if (System.console() == null) {
                 Scanner in = new Scanner(System.in);
                 privKey = in.nextLine();
-                in.close();
+//                in.close();
             } else {
                 privKey = new String(System.console().readPassword());
             }
