@@ -1,6 +1,5 @@
 package wallet;
 
-import http.BtcServletRest;
 import org.bitcoinj.core.*;
 import org.bitcoinj.core.listeners.TransactionConfidenceEventListener;
 import org.bitcoinj.kits.WalletAppKit;
@@ -8,6 +7,8 @@ import org.bitcoinj.params.MainNetParams;
 import org.bitcoinj.wallet.Wallet;
 import org.bitcoinj.wallet.listeners.WalletCoinsReceivedEventListener;
 import org.bitcoinj.wallet.listeners.WalletCoinsSentEventListener;
+
+import http.BtcServletRest;
 
 import javax.validation.constraints.NotNull;
 import java.io.*;
@@ -21,7 +22,13 @@ public class App {
 
         NetworkParameters netParams = MainNetParams.get();
 
-        WalletAppKit appKit = new WalletAppKit(netParams, new File("."), fn);
+        File dir = null;
+        if (args.length > 0){
+            dir = new File(args[0]);
+        } else {
+            dir = new File(".");
+        }
+        WalletAppKit appKit = new WalletAppKit(netParams, dir, fn);
         System.out.println("Please wait for initialization...");
         appKit.setAutoSave(true);
         appKit.startAsync();
@@ -179,7 +186,7 @@ public class App {
             try {
                 key = getEcKey(netParams, privKey);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("Private key incorrect");
                 return;
             }
             wallet.importKey(key);
