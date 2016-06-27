@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project wallet with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
+    <!--ANT 1.7 is required-->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="C:/Users/david_000/workspace"/>
+    <property name="dir.jarfile" value="${dir.buildfile}/out/artifacts/wallet_jar"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/wallet.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="wallet.App"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ bitcoinj-core-0.15-SNAPSHOT-bundled.jar bitcoinj-core-0.15-SNAPSHOT.jar genson-1.4.jar aopalliance-repackaged-2.4.0-b34.jar asm-debug-all-5.0.4.jar hk2-api-2.4.0-b34.jar hk2-locator-2.4.0-b34.jar hk2-utils-2.4.0-b34.jar javassist-3.18.1-GA.jar javax.annotation-api-1.2.jar javax.inject-2.4.0-b34.jar javax.servlet-api-3.0.1.jar jaxb-api-2.2.7.jar jersey-guava-2.23.1.jar org.osgi.core-4.2.0.jar osgi-resource-locator-1.0.1.jar persistence-api-1.0.jar validation-api-1.1.0.Final.jar javax.ws.rs-api-2.0.1.jar jersey-client.jar jersey-common.jar jersey-container-servlet-core.jar jersey-container-servlet.jar jersey-media-jaxb.jar jersey-server.jar cdi-core-9.3.9.v20160517.jar cdi-servlet-9.3.9.v20160517.jar cdi-websocket-9.3.9.v20160517.jar jetty-alpn-server-9.3.9.v20160517.jar jetty-annotations-9.3.9.v20160517.jar jetty-client-9.3.9.v20160517.jar jetty-continuation-9.3.9.v20160517.jar jetty-deploy-9.3.9.v20160517.jar jetty-gcloud-session-manager-9.3.9.v20160517.jar jetty-http-9.3.9.v20160517.jar jetty-infinispan-9.3.9.v20160517.jar jetty-io-9.3.9.v20160517.jar jetty-jaas-9.3.9.v20160517.jar jetty-jaspi-9.3.9.v20160517.jar jetty-jmx-9.3.9.v20160517.jar jetty-jndi-9.3.9.v20160517.jar jetty-nosql-9.3.9.v20160517.jar jetty-plus-9.3.9.v20160517.jar jetty-proxy-9.3.9.v20160517.jar jetty-quickstart-9.3.9.v20160517.jar jetty-rewrite-9.3.9.v20160517.jar jetty-schemas-3.1.jar jetty-security-9.3.9.v20160517.jar jetty-server-9.3.9.v20160517.jar jetty-servlet-9.3.9.v20160517.jar jetty-servlets-9.3.9.v20160517.jar jetty-util-9.3.9.v20160517.jar jetty-webapp-9.3.9.v20160517.jar jetty-xml-9.3.9.v20160517.jar servlet-api-3.1.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="${dir.buildfile}/out/production/wallet"/>
+            <zipfileset dir="${dir.buildfile}/lib" includes="bitcoinj-core-0.15-SNAPSHOT-bundled.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib" includes="bitcoinj-core-0.15-SNAPSHOT.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib" includes="genson-1.4.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="aopalliance-repackaged-2.4.0-b34.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="asm-debug-all-5.0.4.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="hk2-api-2.4.0-b34.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="hk2-locator-2.4.0-b34.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="hk2-utils-2.4.0-b34.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javassist-3.18.1-GA.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javax.annotation-api-1.2.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javax.inject-2.4.0-b34.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javax.servlet-api-3.0.1.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="jaxb-api-2.2.7.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="jersey-guava-2.23.1.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="org.osgi.core-4.2.0.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="osgi-resource-locator-1.0.1.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="persistence-api-1.0.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="validation-api-1.1.0.Final.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/api" includes="javax.ws.rs-api-2.0.1.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-client.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-common.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-container-servlet-core.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-container-servlet.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-media-jaxb.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-server.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="cdi-core-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="cdi-servlet-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="cdi-websocket-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-alpn-server-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-annotations-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-client-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-continuation-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-deploy-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-gcloud-session-manager-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-http-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-infinispan-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-io-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jaas-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jaspi-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jmx-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jndi-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-nosql-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-plus-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-proxy-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-quickstart-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-rewrite-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-schemas-3.1.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-security-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-server-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-servlet-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-servlets-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-util-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-webapp-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-xml-9.3.9.v20160517.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="servlet-api-3.1.jar"/>
+        </jar>
+    </target>
+</project>

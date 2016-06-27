@@ -126,6 +126,7 @@ public class App {
             if (System.console() == null) {
                 Scanner in = new Scanner(System.in);
                 cmd = in.nextLine();
+                in.close();
             } else {
                 cmd = System.console().readLine();
             }
@@ -152,6 +153,13 @@ public class App {
             for (Address wa : wallet.getWatchedAddresses()) {
                 System.out.println("Watching address: " + wa.toString());
             }
+            for (Transaction tx : wallet.getTransactionsByTime()) {
+                System.out.println("Transaction: " + tx.getHashAsString());
+                System.out.println("Received: " + tx.getValueSentToMe(wallet).toFriendlyString());
+                System.out.println("Sent: " + tx.getValueSentFromMe(wallet).toFriendlyString());
+                System.out.println("Confirmations: " + tx.getConfidence().getDepthInBlocks());
+                System.out.println();
+            }
         }
 
         private void setPrivateKey() {
@@ -162,6 +170,7 @@ public class App {
             if (System.console() == null) {
                 Scanner in = new Scanner(System.in);
                 privKey = in.nextLine();
+                in.close();
             } else {
                 privKey = new String(System.console().readPassword());
             }
