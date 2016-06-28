@@ -1,76 +1,356 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project wallet with Jar-in-Jar Loader">
-    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
-    <!--ANT 1.7 is required-->
-    <!--define folder properties-->
-    <property name="dir.buildfile" value="."/>
-    <property name="dir.workspace" value="C:/Users/david_000/workspace"/>
-    <property name="dir.jarfile" value="${dir.buildfile}/out/artifacts/wallet_jar"/>
-    <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/wallet.jar">
-            <manifest>
-                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
-                <attribute name="Rsrc-Main-Class" value="wallet.App"/>
-                <attribute name="Class-Path" value="."/>
-                <attribute name="Rsrc-Class-Path" value="./ bitcoinj-core-0.15-SNAPSHOT-bundled.jar bitcoinj-core-0.15-SNAPSHOT.jar genson-1.4.jar aopalliance-repackaged-2.4.0-b34.jar asm-debug-all-5.0.4.jar hk2-api-2.4.0-b34.jar hk2-locator-2.4.0-b34.jar hk2-utils-2.4.0-b34.jar javassist-3.18.1-GA.jar javax.annotation-api-1.2.jar javax.inject-2.4.0-b34.jar javax.servlet-api-3.0.1.jar jaxb-api-2.2.7.jar jersey-guava-2.23.1.jar org.osgi.core-4.2.0.jar osgi-resource-locator-1.0.1.jar persistence-api-1.0.jar validation-api-1.1.0.Final.jar javax.ws.rs-api-2.0.1.jar jersey-client.jar jersey-common.jar jersey-container-servlet-core.jar jersey-container-servlet.jar jersey-media-jaxb.jar jersey-server.jar cdi-core-9.3.9.v20160517.jar cdi-servlet-9.3.9.v20160517.jar cdi-websocket-9.3.9.v20160517.jar jetty-alpn-server-9.3.9.v20160517.jar jetty-annotations-9.3.9.v20160517.jar jetty-client-9.3.9.v20160517.jar jetty-continuation-9.3.9.v20160517.jar jetty-deploy-9.3.9.v20160517.jar jetty-gcloud-session-manager-9.3.9.v20160517.jar jetty-http-9.3.9.v20160517.jar jetty-infinispan-9.3.9.v20160517.jar jetty-io-9.3.9.v20160517.jar jetty-jaas-9.3.9.v20160517.jar jetty-jaspi-9.3.9.v20160517.jar jetty-jmx-9.3.9.v20160517.jar jetty-jndi-9.3.9.v20160517.jar jetty-nosql-9.3.9.v20160517.jar jetty-plus-9.3.9.v20160517.jar jetty-proxy-9.3.9.v20160517.jar jetty-quickstart-9.3.9.v20160517.jar jetty-rewrite-9.3.9.v20160517.jar jetty-schemas-3.1.jar jetty-security-9.3.9.v20160517.jar jetty-server-9.3.9.v20160517.jar jetty-servlet-9.3.9.v20160517.jar jetty-servlets-9.3.9.v20160517.jar jetty-util-9.3.9.v20160517.jar jetty-webapp-9.3.9.v20160517.jar jetty-xml-9.3.9.v20160517.jar servlet-api-3.1.jar"/>
-            </manifest>
-            <zipfileset src="jar-in-jar-loader.zip"/>
-            <fileset dir="${dir.buildfile}/out/production/wallet"/>
-            <zipfileset dir="${dir.buildfile}/lib" includes="bitcoinj-core-0.15-SNAPSHOT-bundled.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib" includes="bitcoinj-core-0.15-SNAPSHOT.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib" includes="genson-1.4.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="aopalliance-repackaged-2.4.0-b34.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="asm-debug-all-5.0.4.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="hk2-api-2.4.0-b34.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="hk2-locator-2.4.0-b34.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="hk2-utils-2.4.0-b34.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javassist-3.18.1-GA.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javax.annotation-api-1.2.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javax.inject-2.4.0-b34.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="javax.servlet-api-3.0.1.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="jaxb-api-2.2.7.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="jersey-guava-2.23.1.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="org.osgi.core-4.2.0.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="osgi-resource-locator-1.0.1.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="persistence-api-1.0.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/ext" includes="validation-api-1.1.0.Final.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/api" includes="javax.ws.rs-api-2.0.1.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-client.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-common.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-container-servlet-core.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-container-servlet.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-media-jaxb.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jaxrs-ri/lib" includes="jersey-server.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="cdi-core-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="cdi-servlet-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="cdi-websocket-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-alpn-server-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-annotations-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-client-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-continuation-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-deploy-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-gcloud-session-manager-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-http-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-infinispan-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-io-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jaas-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jaspi-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jmx-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-jndi-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-nosql-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-plus-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-proxy-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-quickstart-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-rewrite-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-schemas-3.1.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-security-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-server-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-servlet-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-servlets-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-util-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-webapp-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="jetty-xml-9.3.9.v20160517.jar"/>
-            <zipfileset dir="${dir.buildfile}/lib/jetty-distribution-9.3.9.v20160517/lib" includes="servlet-api-3.1.jar"/>
-        </jar>
-    </target>
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wallet" default="all">
+  
+  
+  <property file="wallet.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.ane"/>
+    <include name="*.zip"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.bitcoinj-core-0.15-snapshot-bundled.classpath">
+    <pathelement location="${basedir}/lib/bitcoinj-core-0.15-SNAPSHOT-bundled.jar"/>
+    <pathelement location="${basedir}/lib/bitcoinj-core-0.15-SNAPSHOT.jar"/>
+    <pathelement location="${basedir}/lib/genson-1.4.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/api/javax.ws.rs-api-2.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/aopalliance-repackaged-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/asm-debug-all-5.0.4.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-api-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-locator-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-utils-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javassist-3.18.1-GA.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.annotation-api-1.2.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.inject-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.servlet-api-3.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jaxb-api-2.2.7.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jersey-guava-2.23.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/osgi-resource-locator-1.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/persistence-api-1.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/validation-api-1.1.0.Final.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-client.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-common.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet-core.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-media-jaxb.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-server.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/cdi-core-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/cdi-servlet-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/cdi-websocket-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-alpn-server-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-annotations-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-client-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-continuation-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-deploy-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-gcloud-session-manager-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-http-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-infinispan-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-io-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-jaas-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-jaspi-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-jmx-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-jndi-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-nosql-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-plus-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-proxy-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-quickstart-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-rewrite-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-security-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-server-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-servlet-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-servlets-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-util-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-webapp-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/jetty-xml-9.3.9.v20160517.jar"/>
+    <pathelement location="${basedir}/lib/jetty-distribution-9.3.9.v20160517/lib/servlet-api-3.1.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module wallet -->
+  
+  <dirname property="module.wallet.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.wallet" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.wallet" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.wallet" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.wallet" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="wallet.output.dir" value="${module.wallet.basedir}/out/production/wallet"/>
+  <property name="wallet.testoutput.dir" value="${module.wallet.basedir}/out/test/wallet"/>
+  
+  <path id="wallet.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="wallet.module.production.classpath">
+    <path refid="${module.jdk.classpath.wallet}"/>
+    <path refid="library.bitcoinj-core-0.15-snapshot-bundled.classpath"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/api/javax.ws.rs-api-2.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/aopalliance-repackaged-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/asm-debug-all-5.0.4.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-api-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-locator-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-utils-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javassist-3.18.1-GA.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.annotation-api-1.2.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.inject-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.servlet-api-3.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jaxb-api-2.2.7.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jersey-guava-2.23.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/org.osgi.core-4.2.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/osgi-resource-locator-1.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/persistence-api-1.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/validation-api-1.1.0.Final.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-client.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-common.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet-core.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-media-jaxb.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-server.jar"/>
+    <pathelement location="${basedir}/lib/.gitignore"/>
+    <pathelement location="${basedir}/lib/bitcoinj-core-0.15-SNAPSHOT-bundled.jar"/>
+  </path>
+  
+  <path id="wallet.runtime.production.module.classpath">
+    <pathelement location="${wallet.output.dir}"/>
+    <path refid="library.bitcoinj-core-0.15-snapshot-bundled.classpath"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/api/javax.ws.rs-api-2.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/aopalliance-repackaged-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/asm-debug-all-5.0.4.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-api-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-locator-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-utils-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javassist-3.18.1-GA.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.annotation-api-1.2.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.inject-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.servlet-api-3.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jaxb-api-2.2.7.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jersey-guava-2.23.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/org.osgi.core-4.2.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/osgi-resource-locator-1.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/persistence-api-1.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/validation-api-1.1.0.Final.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-client.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-common.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet-core.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-media-jaxb.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-server.jar"/>
+    <pathelement location="${basedir}/lib/.gitignore"/>
+    <pathelement location="${basedir}/lib/bitcoinj-core-0.15-SNAPSHOT-bundled.jar"/>
+  </path>
+  
+  <path id="wallet.module.classpath">
+    <path refid="${module.jdk.classpath.wallet}"/>
+    <pathelement location="${wallet.output.dir}"/>
+    <path refid="library.bitcoinj-core-0.15-snapshot-bundled.classpath"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/api/javax.ws.rs-api-2.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/aopalliance-repackaged-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/asm-debug-all-5.0.4.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-api-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-locator-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-utils-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javassist-3.18.1-GA.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.annotation-api-1.2.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.inject-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.servlet-api-3.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jaxb-api-2.2.7.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jersey-guava-2.23.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/org.osgi.core-4.2.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/osgi-resource-locator-1.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/persistence-api-1.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/validation-api-1.1.0.Final.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-client.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-common.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet-core.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-media-jaxb.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-server.jar"/>
+    <pathelement location="${basedir}/lib/.gitignore"/>
+    <pathelement location="${basedir}/lib/bitcoinj-core-0.15-SNAPSHOT-bundled.jar"/>
+  </path>
+  
+  <path id="wallet.runtime.module.classpath">
+    <pathelement location="${wallet.testoutput.dir}"/>
+    <pathelement location="${wallet.output.dir}"/>
+    <path refid="library.bitcoinj-core-0.15-snapshot-bundled.classpath"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/api/javax.ws.rs-api-2.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/aopalliance-repackaged-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/asm-debug-all-5.0.4.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-api-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-locator-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/hk2-utils-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javassist-3.18.1-GA.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.annotation-api-1.2.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.inject-2.4.0-b34.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/javax.servlet-api-3.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jaxb-api-2.2.7.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/jersey-guava-2.23.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/org.osgi.core-4.2.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/osgi-resource-locator-1.0.1.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/persistence-api-1.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/ext/validation-api-1.1.0.Final.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-client.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-common.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet-core.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-container-servlet.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-media-jaxb.jar"/>
+    <pathelement location="${basedir}/lib/jaxrs-ri/lib/jersey-server.jar"/>
+    <pathelement location="${basedir}/lib/.gitignore"/>
+    <pathelement location="${basedir}/lib/bitcoinj-core-0.15-SNAPSHOT-bundled.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.wallet">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.wallet">
+    <patternset refid="excluded.from.module.wallet"/>
+  </patternset>
+  
+  <path id="wallet.module.sourcepath">
+    <dirset dir="${module.wallet.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.wallet" depends="compile.module.wallet.production,compile.module.wallet.tests" description="Compile module wallet"/>
+  
+  <target name="compile.module.wallet.production" depends="register.custom.compilers" description="Compile module wallet; production classes">
+    <mkdir dir="${wallet.output.dir}"/>
+    <javac2 destdir="${wallet.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.wallet}/javac">
+      <compilerarg line="${compiler.args.wallet}"/>
+      <bootclasspath refid="wallet.module.bootclasspath"/>
+      <classpath refid="wallet.module.production.classpath"/>
+      <src refid="wallet.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.wallet"/>
+    </javac2>
+    
+    <copy todir="${wallet.output.dir}">
+      <fileset dir="${module.wallet.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.wallet.tests" depends="register.custom.compilers,compile.module.wallet.production" description="compile module wallet; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.wallet" description="cleanup module">
+    <delete dir="${wallet.output.dir}"/>
+    <delete dir="${wallet.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.wallet" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.wallet" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
 </project>
