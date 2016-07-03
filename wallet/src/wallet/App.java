@@ -82,6 +82,14 @@ public class App {
         BtcServletRest.run(appKit);
     }
 
+    protected enum WalletCommand {
+        help,
+        key,
+        balance,
+        nop
+        ;
+    }
+
     private static class CmdHandler implements Runnable {
         final private Wallet wallet;
 
@@ -96,22 +104,32 @@ public class App {
             while (!(cmd = readLine()).equals("^^~^^")) {
                 String[] params = cmd.split(" ");
 
-                if (params.length > 1 && params[0].equals("?")) {
-                    helpCmd(params[1]);
+                if (params[0].equals("?")) {
+                    if (params.length > 1) {
+                        helpCmd(params[1]);
+                    } else {
+                        helpCmd("");
+                    }
                 } else {
-                    switch (cmd) {
-                        case "help":
-                            help();
-                            break;
-                        case "?":
-                            helpCmd("");
-                            break;
-                        case "private":
-                            setPrivateKey();
-                            break;
-                        case "balance":
-                            showBalance();
-                        default:
+                    try {
+                        WalletCommand cmd_e = WalletCommand.valueOf(cmd); // surround with try/catch
+
+                        switch (cmd_e) {
+                            case help:
+                                help();
+                                break;
+                            case key:
+                                setPrivateKey();
+                                break;
+                            case balance:
+                                showBalance();
+                            default:
+                        }
+                    } catch (IllegalArgumentException e) {
+                        if (!cmd.isEmpty()) {
+                            System.out.println("Unknown command: " + cmd);
+                            System.out.println("Usage 'help' command");
+                        }
                     }
                 }
             }
@@ -152,7 +170,7 @@ public class App {
 
         private void help() {
             System.out.println("Commands: ");
-            System.out.println(" \t balance \n \t private \n \t help \n \t ? \n");
+            System.out.println(" \t balance \n \t key \n \t help \n \t ? \n");
         }
 
         private void showBalance() {

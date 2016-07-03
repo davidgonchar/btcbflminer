@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component inherit-compiler-output="true" inheritJdk="true">
-	<output-test url="file://$MODULE_DIR$/out/test/wallet"/>
-	<exclude-output/>
-	<contentEntry url="file://$MODULE_DIR$"/>
+<component LANGUAGE_LEVEL="JDK_1_6" jdk="1.8" jdk_type="JavaSDK">
+	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/target"/>
+	</contentEntry>
 	<levels>
 		<level name="lib" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-servlet:9.3.7.v20160115" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-security:9.3.7.v20160115" value="project"/>
+		<level name="Maven: org.bitcoinj:bitcoinj-core:0.15-SNAPSHOT" value="project"/>
+		<level name="Maven: com.madgag.spongycastle:core:1.51.0.0" value="project"/>
+		<level name="Maven: com.google.protobuf:protobuf-java:2.6.1" value="project"/>
+		<level name="Maven: com.google.guava:guava:18.0" value="project"/>
+		<level name="Maven: com.google.code.findbugs:jsr305:2.0.1" value="project"/>
+		<level name="Maven: net.jcip:jcip-annotations:1.0" value="project"/>
+		<level name="Maven: com.lambdaworks:scrypt:1.4.0" value="project"/>
+		<level name="Maven: org.bitcoinj:orchid:1.2.1" value="project"/>
+		<level name="Maven: com.squareup.okhttp:okhttp:2.7.2" value="project"/>
+		<level name="Maven: com.squareup.okio:okio:1.6.0" value="project"/>
+		<level name="Maven: org.slf4j:slf4j-api:1.7.20" value="project"/>
+		<level name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-server:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-http:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-io:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-util:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-servlet:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-security:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-annotations:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-plus:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty.orbit:javax.transaction:1.1.1.v201105210645" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-jndi:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty.orbit:javax.mail.glassfish:1.4.1.v201005082020" value="project"/>
+		<level name="Maven: org.eclipse.jetty.orbit:javax.activation:1.1.0.v201105071233" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-webapp:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-xml:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty.orbit:javax.annotation:1.1.0.v201108011116" value="project"/>
+		<level name="Maven: org.eclipse.jetty.orbit:org.objectweb.asm:3.1.0.v200803061910" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-client:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.eclipse.jetty:jetty-continuation:8.1.16.v20140903" value="project"/>
+		<level name="Maven: org.glassfish.jersey:jax-rs-ri:2.0-rc1" value="project"/>
+		<level name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:2.17" value="project"/>
+		<level name="Maven: org.glassfish.hk2.external:javax.inject:2.4.0-b10" value="project"/>
+		<level name="Maven: org.glassfish.jersey.core:jersey-common:2.17" value="project"/>
+		<level name="Maven: javax.annotation:javax.annotation-api:1.2" value="project"/>
+		<level name="Maven: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.17" value="project"/>
+		<level name="Maven: org.glassfish.hk2:hk2-api:2.4.0-b10" value="project"/>
+		<level name="Maven: org.glassfish.hk2:hk2-utils:2.4.0-b10" value="project"/>
+		<level name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.4.0-b10" value="project"/>
+		<level name="Maven: org.glassfish.hk2:hk2-locator:2.4.0-b10" value="project"/>
+		<level name="Maven: org.javassist:javassist:3.18.1-GA" value="project"/>
+		<level name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" value="project"/>
+		<level name="Maven: org.glassfish.jersey.core:jersey-server:2.17" value="project"/>
+		<level name="Maven: org.glassfish.jersey.core:jersey-client:2.17" value="project"/>
+		<level name="Maven: org.glassfish.jersey.media:jersey-media-jaxb:2.17" value="project"/>
+		<level name="Maven: javax.servlet:javax.servlet-api:3.1.0" value="project"/>
+		<level name="Maven: javax.validation:validation-api:1.1.0.Final" value="project"/>
+		<level name="Maven: com.owlike:genson:1.4" value="project"/>
 	</levels>
 </component>
